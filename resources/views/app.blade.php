@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <link rel="icon" href="icons/favicon.png">
 
-    <base href="{{env('BASE_HREF', '')}}">
+    <base href="{{asset('')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css?v=').env('ASSET_VERSION', 1)}}" rel="stylesheet">
