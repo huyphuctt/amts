@@ -65,7 +65,7 @@ class PageCustomerDB extends AbsComponent {
         const self = this;
         const body = Utils.formData(__pageParams);
         Utils.showLoading();
-        let submitResponse = await axios.post(CONST._API_, body, {
+        let submitResponse = await axios.post(CONST._ROOT_ + CONST._API_, body, {
             headers: {
                 'Content-Type': 'application/json',
             }

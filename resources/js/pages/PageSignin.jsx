@@ -94,7 +94,7 @@ class PageSignIn extends AbsComponent {
         }
         body.append('params', JSON.stringify(params));
         Common.showLoading('');
-        let submitResponse = await axios.post(CONST._API_, body, {
+        let submitResponse = await axios.post(CONST._ROOT_ + CONST._API_, body, {
             headers: {
                 'Content-Type': 'application/json',
             }

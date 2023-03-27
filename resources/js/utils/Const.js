@@ -7,7 +7,9 @@ const CONST = {
     _ERR_EXPIRED_: 'expired',
 
     //API Endpoint
-    _API_: 'api/v1',
+
+    _ROOT_: '',
+    _API_: '/api/v1',
 
     _TOKEN_INVALID_: -1,
     _TOKEN_VALID_: 0,
@@ -25,5 +27,6 @@ const CONST = {
     // TOAST position
     _TOAST_TOP_: 'top',
     _TOAST_BOTTOM_: 'bottom',
+
 }
 export default CONST;

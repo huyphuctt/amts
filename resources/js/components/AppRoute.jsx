@@ -18,6 +18,7 @@ import PageSettings from '../pages/PageSettings';
 
 import Utils from '../utils/Utils';
 import Common from '../utils/Common';
+import CONST from '../utils/Const';
 
 class AppRoute extends Component {
     constructor(props) {
@@ -39,29 +40,31 @@ class AppRoute extends Component {
         // Call F7 APIs here
     }
     render() {
-        debugger;
         const self = this;
+        if (window.location.href.includes('/amts')) {
+            CONST._ROOT_ = '/amts';
+        }
         var { f7params, appDetails } = self.state;
-        const redirectUrl = 'signin.html?returnUrl=' + Utils.buildUri(appDetails.query);
+        const redirectUrl = `${CONST._ROOT_}/signin.html?returnUrl=${CONST._ROOT_}/` + Utils.buildUri(appDetails.query);
         return <App {...f7params} >
             <BrowserRouter>
                 <Switch>
-                    <Route path='/signin.html'>
+                    <Route path={`${CONST._ROOT_}/signin.html`}>
                         {appDetails.authenticated === true ? <Redirect to='customer-db' /> : <PageSignIn app={appDetails} />}
                     </Route>
-                    <Route path='/dashboard'>
+                    <Route match path={`${CONST._ROOT_}/dashboard'`}>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageDashboard app={appDetails} />}
                     </Route>
-                    <Route path='/customer-db'>
+                    <Route path={`${CONST._ROOT_}/customer-db`}>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageCustomerDB app={appDetails} />}
                     </Route>
-                    <Route path='/master-data'>
+                    <Route path={`${CONST._ROOT_}/master-data`}>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageMasterData app={appDetails} />}
                     </Route>
-                    <Route path='/logs'>
+                    <Route path={`${CONST._ROOT_}/logs`}>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageLogs app={appDetails} />}
                     </Route>
-                    <Route path='/settings'>
+                    <Route path={`${CONST._ROOT_}/settings`}>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageSettings app={appDetails} />}
                     </Route>
                     <Route path=''>

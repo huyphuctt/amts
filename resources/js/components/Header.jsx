@@ -22,7 +22,7 @@ class Header extends Component {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').content
         };
         Utils.showLoading();
-        let submitResponse = await axios.post(CONST._API_, body, {
+        let submitResponse = await axios.post(CONST._ROOT_ + CONST._API_, body, {
             headers: {
                 'Content-Type': 'application/json',
             }
