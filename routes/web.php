@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::view('/{path?}', 'app');
+Route::view('/amts/{path?}', 'app');
 
