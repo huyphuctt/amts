@@ -39,28 +39,29 @@ class AppRoute extends Component {
         // Call F7 APIs here
     }
     render() {
+        debugger;
         const self = this;
         var { f7params, appDetails } = self.state;
         const redirectUrl = 'signin.html?returnUrl=' + Utils.buildUri(appDetails.query);
         return <App {...f7params} >
             <BrowserRouter>
                 <Switch>
-                    <Route path='signin.html'>
+                    <Route path='/signin.html'>
                         {appDetails.authenticated === true ? <Redirect to='customer-db' /> : <PageSignIn app={appDetails} />}
                     </Route>
-                    <Route path='dashboard'>
+                    <Route path='/dashboard'>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageDashboard app={appDetails} />}
                     </Route>
-                    <Route path='customer-db'>
+                    <Route path='/customer-db'>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageCustomerDB app={appDetails} />}
                     </Route>
-                    <Route path='master-data'>
+                    <Route path='/master-data'>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageMasterData app={appDetails} />}
                     </Route>
-                    <Route path='logs'>
+                    <Route path='/logs'>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageLogs app={appDetails} />}
                     </Route>
-                    <Route path='settings'>
+                    <Route path='/settings'>
                         {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageSettings app={appDetails} />}
                     </Route>
                     <Route path=''>

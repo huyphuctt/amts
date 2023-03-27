@@ -31,6 +31,7 @@ import CONST from '../utils/Const';
 
 class PageSignIn extends AbsComponent {
     constructor(props) {
+        debugger;
         super(props);
     }
 
