@@ -7,7 +7,7 @@ const CONST = {
     _ERR_EXPIRED_: 'expired',
 
     //API Endpoint
-    _API_: '/api/v1',
+    _API_: 'api/v1',
 
     _TOKEN_INVALID_: -1,
     _TOKEN_VALID_: 0,
