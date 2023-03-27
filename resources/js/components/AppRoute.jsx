@@ -41,11 +41,11 @@ class AppRoute extends Component {
     render() {
         const self = this;
         var { f7params, appDetails } = self.state;
-        const redirectUrl = '/signin.html?returnUrl=/' + Utils.buildUri(appDetails.query);
+        const redirectUrl = 'signin.html?returnUrl=' + Utils.buildUri(appDetails.query);
         return <App {...f7params} >
             <BrowserRouter>
                 <Switch>
-                    <Route path='/signin.html'>
+                    <Route path='signin.html'>
                         {appDetails.authenticated === true ? <Redirect to='/' /> : <PageSignIn app={appDetails} />}
                     </Route>
                     <Route path='/dashboard'>

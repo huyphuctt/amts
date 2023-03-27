@@ -16,3 +16,4 @@ yarn-error.log
 *.yml
 composer.lock
 package-lock.json
+*.map

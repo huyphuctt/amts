@@ -91,7 +91,7 @@ class PageDashboard extends Component {
             const data = submitResponse.data;
             if (data.err === CONST._ERR_EXPIRED_) {
                 const appDetails = self.props.app;
-                const redirectUrl = '/signin.html?returnUrl=/' + Utils.buildUri(appDetails.query);
+                const redirectUrl = 'signin.html?returnUrl=' + Utils.buildUri(appDetails.query);
                 Utils.showToast(data.msg, data.err, CONST.TOAST_BOTTOM_CENTER);
                 Utils.setLocalStorage('token', '');
                 Utils.executeOnce(() => {
