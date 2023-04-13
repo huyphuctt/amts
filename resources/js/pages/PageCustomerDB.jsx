@@ -1,40 +1,24 @@
 import axios from 'axios'
-import React, { Component } from 'react'
+import React from 'react'
 
 import {
-    f7,
-    f7ready,
-    App,
-    Panel,
-    Views,
     View,
-    Popup,
-    Page,
-    Navbar,
     Toolbar,
-    NavRight,
     Link,
-    Block,
-    BlockTitle,
-    LoginScreen,
-    LoginScreenTitle,
     List,
     ListItem,
-    ListInput,
-    ListButton,
-    BlockFooter,
-    PageContent,
-    Button,
     Popover
 } from 'framework7-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import LeftPanel from '../components/LeftPanel';
-import CONST from '../utils/Const';
-import Pagination from '../components/Pagination';
-import Utils from '../utils/Utils';
-import AbsComponent from '../components/AbsComponent';
 
+import AbsComponent from '../components/AbsComponent';
+import Header from '../components/Header';
+import LeftPanel from '../components/LeftPanel';
+import Pagination from '../components/Pagination';
+
+import urlImport from '../forms/UrlImportForm';
+
+import Utils from '../utils/Utils';
+import CONST from '../utils/Const';
 class PageCustomerDB extends AbsComponent {
     constructor(props) {
         super(props);
@@ -100,6 +84,17 @@ class PageCustomerDB extends AbsComponent {
         }
     }
 
+    async showImportUrl() {
+        var result = await urlImport('Import URL');
+        if (result !== null) {
+            console.log('Process');
+            if (result.result === true) {
+                //do something, 
+            }
+        } else {
+            console.log('Cancel');
+        }
+    }
     render() {
         const self = this;
         var { __pageDataLoaded, __pageData } = self.state;
@@ -108,14 +103,13 @@ class PageCustomerDB extends AbsComponent {
             <View main>
                 <Header title='Customer DB' />
                 <Toolbar top className='border' >
-                    <Link>Right Link</Link>
-                    <Link iconMaterial="logout" className='text-danger' popoverOpen=".popover-menu" ></Link>
-
+                    <Link></Link>
+                    <Link iconMaterial="more_vert" className='text-success' popoverOpen=".popover-menu" ></Link>
                 </Toolbar>
                 {__pageDataLoaded ? <Pagination items={__pageData.items} pagination={__pageData.pagination} /> : ''}
                 <Popover className="popover-menu">
                     <List>
-                        <ListItem link="#" popoverClose title="Dialog" />
+                        <ListItem link="#" popoverClose title="Dialog" onClick={(e) => { self.showImportUrl(); }} />
                         <ListItem link="#" popoverClose title="Tabs" />
                         <ListItem link="#" popoverClose title="Side Panels" />
                         <ListItem link="#" popoverClose title="List View" />

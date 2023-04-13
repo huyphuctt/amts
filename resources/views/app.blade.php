@@ -17,17 +17,14 @@
     <meta name="theme-color" content="#fff">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <title>My App</title>
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <link rel="icon" href="icons/favicon.png">
+    <title>AMTS</title>
 
     <base href="{{asset('')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css?v=').env('ASSET_VERSION', 1)}}" rel="stylesheet">
+    <link href="{{ asset('fonts/icons.css?v=').env('ASSET_VERSION', 1)}}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>

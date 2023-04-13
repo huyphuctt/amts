@@ -31,6 +31,7 @@ import LeftPanel from '../components/LeftPanel';
 import Utils from '../utils/Utils';
 import Pagination from '../components/Pagination';
 import CONST from '../utils/Const';
+import urlImport from '../forms/UrlImportForm';
 
 class PageDashboard extends Component {
     constructor(props) {

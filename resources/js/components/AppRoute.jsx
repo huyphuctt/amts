@@ -7,7 +7,6 @@ import {
     App,
 } from 'framework7-react';
 
-import PageSignIn from '../pages/PageSignin';
 import PageNotFound from '../pages/PageNotFound';
 
 import PageCustomerDB from '../pages/PageCustomerDB';
@@ -41,7 +40,7 @@ class AppRoute extends Component {
     }
     render() {
         const self = this;
-        if (window.location.href.includes('/amts')) {
+        if (Utils.str_contains(window.location.href, '/amts') && !Utils.str_contains(window.location.href, '//amts')) {
             CONST._ROOT_ = '/amts';
         }
         var { f7params, appDetails } = self.state;
@@ -49,27 +48,26 @@ class AppRoute extends Component {
         return <App {...f7params} >
             <BrowserRouter>
                 <Switch>
-                    <Route path={`${CONST._ROOT_}/signin.html`}>
-                        {appDetails.authenticated === true ? <Redirect to='customer-db' /> : <PageSignIn app={appDetails} />}
-                    </Route>
                     <Route match path={`${CONST._ROOT_}/dashboard'`}>
-                        {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageDashboard app={appDetails} />}
+                        <PageDashboard app={appDetails} />
+                    </Route>
+                    <Route match path={`${CONST._ROOT_}'`}>
+                        <PageDashboard app={appDetails} />
                     </Route>
                     <Route path={`${CONST._ROOT_}/customer-db`}>
-                        {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageCustomerDB app={appDetails} />}
+                        <PageCustomerDB app={appDetails} />
                     </Route>
                     <Route path={`${CONST._ROOT_}/master-data`}>
-                        {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageMasterData app={appDetails} />}
+                        <PageMasterData app={appDetails} />
                     </Route>
                     <Route path={`${CONST._ROOT_}/logs`}>
-                        {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageLogs app={appDetails} />}
+                        <PageLogs app={appDetails} />
                     </Route>
                     <Route path={`${CONST._ROOT_}/settings`}>
-                        {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : <PageSettings app={appDetails} />}
+                        <PageSettings app={appDetails} />
                     </Route>
                     <Route path=''>
-                        {appDetails.authenticated === false ? <Redirect to={redirectUrl} /> : (appDetails.pages.includes(appDetails.query.page) ? <PageCustomerDB app={appDetails} /> : <PageNotFound app={appDetails} />)}
-                        {/* 404 page */}
+                        <PageCustomerDB app={appDetails} />
                     </Route>
                 </Switch>
                 <ToastContainer

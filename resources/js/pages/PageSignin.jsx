@@ -29,9 +29,10 @@ import {
 import AbsComponent from '../components/AbsComponent';
 import CONST from '../utils/Const';
 
+import Forms from '../components/AbsConfirm';
+
 class PageSignIn extends AbsComponent {
     constructor(props) {
-        debugger;
         super(props);
     }
 
@@ -128,6 +129,7 @@ class PageSignIn extends AbsComponent {
     render() {
         const self = this;
         var { __pageData } = self.state;
+        var showForms = 0;
         return (
             <View main>
                 <Page loginScreen>
@@ -152,6 +154,7 @@ class PageSignIn extends AbsComponent {
                     <List>
                         <ListButton title="Sign In" onClick={(e) => { e.preventDefault(); self.signIn() }} />
                     </List>
+                    <Forms show={showForms} options={{}} />
                 </Page>
             </View>
         );

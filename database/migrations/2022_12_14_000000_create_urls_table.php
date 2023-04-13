@@ -18,8 +18,8 @@ class CreateUrlsTable extends Migration {
             $table->string('contact_url')->nullable();
             $table->string('company_url')->nullable();
             $table->string('logo_url')->nullable();
-            $table->string('language')->nullable();
-            $table->string('country')->nullable();
+            $table->string('language', 16)->nullable();
+            $table->string('country', 32)->nullable();
             $table->string('naics')->nullable();
             $table->mediumText('details')->nullable();
             $table->smallInteger('status')->default(0)->comment('HTTP code, 0: not crawl yet');

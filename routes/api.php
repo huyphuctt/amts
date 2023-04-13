@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::get('/v1', [\App\Http\Controllers\ApiController::class, 'notSupport']);
-Route::post('/v1', [\App\Http\Controllers\ApiController::class, 'index']);
+// Route::group(['middleware' => ['auth']], function () {
+    Route::get('/v1', [\App\Http\Controllers\ApiController::class, 'notSupport']);
+    Route::post('/v1', [\App\Http\Controllers\ApiController::class, 'index']);
+// });

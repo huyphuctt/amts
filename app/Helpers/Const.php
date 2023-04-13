@@ -25,8 +25,19 @@ define('_ACTION_GET_ITEM_', 'get_item');
 define('_ACTION_SET_ITEM_', 'set_item');
 
 define('_ITEM_URL_', 'url');
+define('_TBL_URLS_', 'urls');
+
 define('_ITEM_USER_', 'user');
+define('_TBL_USERS_', 'users');
+
 define('_ITEM_NAICS_', 'naics');
+define('_TBL_NAICS_', 'naics');
+
+define('_ITEM_NAICSIZE_', 'naicsize');
+define('_TBL_NAICSIZE_', 'naicsize');
+
+define('_ITEM_SETTING_', 'setting');
+define('_TBL_SETTINGS_', 'settings');
 
 
 define('_SORT_DESC_', 'DESC');

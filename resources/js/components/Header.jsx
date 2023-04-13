@@ -17,6 +17,7 @@ class Header extends Component {
     componentDidMount() {
     }
     async signOut() {
+        window.location.href = '/signout.html';
         var body = {
             action: 'logout',
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').content
@@ -33,10 +34,9 @@ class Header extends Component {
             return null;
         });
         Utils.hideLoading();
-        if (submitResponse && submitResponse.data) {
-            Utils.setLocalStorage('token', '');
-            window.location.reload();
-        }
+        // if (submitResponse && submitResponse.data) {
+            window.location.reload(true);
+        // }
     }
     render() {
         const self = this;

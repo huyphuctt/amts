@@ -7,12 +7,15 @@ const Common = {
     getAppDetail(location, role) {
         //Do something with the input
         var language = Cookies.get('language');
+        var user = Cookies.get('user');
         var token = Utils.getLocalStorage('token');
         if (language === undefined || language === null) {
             language = '';
         }
-        var authenticated = false;
-        var userDetails = { name: '', position: '' };
+
+
+        var authenticated = true;
+        var userDetails = { user_id: 0, name: '', position: '' };
         if (token === undefined || token === null || token.length === 0) {
             authenticated = false;
         } else {

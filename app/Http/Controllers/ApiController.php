@@ -29,15 +29,15 @@ class ApiController extends Controller {
         } else {
             $params = $request_params;
         }
-        if (isset($request_params['token']) && !isset($params['token'])) {
-            $params['token'] = $request_params['token'];
-        }
-        if (isset($files['token'])) {
-            unset($files['token']);
-        }
-        if (isset($files['X-CSRF-TOKEN'])) {
-            unset($files['X-CSRF-TOKEN']);
-        }
+        // if (isset($request_params['token']) && !isset($params['token'])) {
+        //     $params['token'] = $request_params['token'];
+        // // }
+        // if (isset($files['token'])) {
+        //     unset($files['token']);
+        // }
+        // if (isset($files['X-CSRF-TOKEN'])) {
+        //     unset($files['X-CSRF-TOKEN']);
+        // }
         $params['baseHref'] = $request->getSchemeAndHttpHost();
         if (isset($params['action'])) {
             if ($params['action'] == 'login') {
@@ -45,7 +45,16 @@ class ApiController extends Controller {
             } else if ($params['action'] == 'logout') {
                 $result = $this->logout($request);
             } else {
-                list($status, $user) = $this->checkAuthen($params['token']);
+                // list($status, $user) = $this->checkAuthen($params['token']);
+                $value = Cookie::get('user');
+                $status = false;
+                $user = null;
+                if ($value != null) {
+                    $user = User::where('id', intval($value))->first();
+                    if ($user != null) {
+                        $status = true;
+                    }
+                }
                 if ($status == false) {
                     if ($user == null) {
                         $result = Controller::RESULT_ERROR(__('messages.permission_denied'));
@@ -60,12 +69,13 @@ class ApiController extends Controller {
                             }
 
                         case _ACTION_GET_ITEM_: {
-                                switch ($params['item_type']) {
-                                    case _ITEM_URL_: {
-                                            $result['data'] = getItems($user, $params);
-                                            break;
-                                        }
-                                }
+                                $result['data'] = getItems($user, $params);
+                                break;
+                            }
+                        case _ACTION_SET_ITEM_: {
+                                $result['data'] = updateItems($user, $params);
+                                // 'obj' => $next_url,
+                                // 'str' => http_build_query(['url' => $next_url])
                                 break;
                             }
                     }

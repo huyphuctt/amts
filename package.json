@@ -21,6 +21,8 @@
         "js-cookie": "^3.0.1",
         "material-icons": "^1.11.4",
         "prop-types": "^15.8.1",
+        "react-bootstrap": "^2.0.3",
+        "react-confirm": "^0.3.0-2",
         "react-router-dom": "^5.2.0",
         "react-toastify": "^9.1.2",
         "skeleton-elements": "^4.0.0",
@@ -31,7 +33,7 @@
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
         "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
-        "bootstrap": "^5.1.3",
+        "bootstrap": "^4.6.1",
         "cross-env": "^7.0.3",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -41,7 +43,7 @@
         "react-refresh": "^0.14.0",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.11",
-        "sass-loader": "^11.0.1",
+        "sass-loader": "^12.4.0",
         "vite": "^2.9.13"
     }
 }
