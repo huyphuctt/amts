@@ -17,6 +17,8 @@
     <meta name="theme-color" content="#fff">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
+    <link rel="manifest" href="manifest.json" />
+
     <title>AMTS</title>
 
     <base href="{{asset('')}}">

@@ -2,7 +2,7 @@
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+
 
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
@@ -14,13 +14,18 @@
 @import 'framework7/css/bundle';
 
 // // Import Icons and App Custom Styles
-@import 'icons.scss';
 @import 'background.scss';
 @import 'border.scss';
+@import 'type.scss';
 @import 'display.scss';
 @import 'margin.scss';
 @import 'padding.scss';
 @import 'text.scss';
 @import 'modal.scss';
+@import 'nav.scss';
 @import 'main.scss';
+@import 'forms.scss';
 @import 'panel.scss';
+@import 'container.scss';
+@import 'zindex.scss';
+@import 'variables';

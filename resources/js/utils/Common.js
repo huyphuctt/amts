@@ -16,20 +16,20 @@ const Common = {
 
         var authenticated = true;
         var userDetails = { user_id: 0, name: '', position: '' };
-        if (token === undefined || token === null || token.length === 0) {
-            authenticated = false;
-        } else {
-            authenticated = (token.length > 0);
-            if (authenticated === true) {
-                try {
-                    //get user name and position
-                    var parts = token.split('.');
-                    userDetails = JSON.parse(Buffer.from(parts[1], 'base64').toString());
-                } catch (error) {
+        // if (token === undefined || token === null || token.length === 0) {
+        //     authenticated = false;
+        // } else {
+        //     authenticated = (token.length > 0);
+        //     if (authenticated === true) {
+        //         try {
+        //             //get user name and position
+        //             var parts = token.split('.');
+        //             userDetails = JSON.parse(Buffer.from(parts[1], 'base64').toString());
+        //         } catch (error) {
 
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
         var details = {
             authenticated: authenticated,
@@ -57,22 +57,6 @@ const Common = {
         f7.dialog.confirm(msg, yesCb, noCb);
     },
 
-    loadingDialog: null,
-    showLoading(msg) {
-        if (Common.loadingDialog != null) {
-            Common.loadingDialog.setText(msg);
-        } else {
-            Common.loadingDialog = f7.dialog.preloader(msg);
-        }
-    },
-
-    hideLoading() {
-        if (Common.loadingDialog != null) {
-            Common.loadingDialog.close();
-            Common.loadingDialog = null;
-        }
-    },
-
     progressDialog: null,
     showProgress(title, msg, progress) {
         if (Common.progressDialog == null) {
@@ -80,6 +64,7 @@ const Common = {
         }
         Common.progressDialog.setProgress(progress);
         Common.progressDialog.setText(msg);
+        Common.closeProgress(Common.hideProgress, 60000);
     },
 
     hideProgress() {
@@ -88,9 +73,24 @@ const Common = {
                 Common.progressDialog.close();
                 Common.progressDialog = null;
             }
+            if (Common.closeProgressTimer != null) {
+                clearInterval(Common.closeProgressTimer);
+                Common.executeOnceTimer = null;
+            }
         } catch (ex) {
 
         }
+    },
+    closeProgressTimer: null,
+    closeProgress(fn, delayMillis) {
+        if (Common.closeProgressTimer != null) {
+            clearInterval(Common.closeProgressTimer);
+        }
+        Common.executeOnceTimer = setInterval(function () {
+            clearInterval(Common.executeOnceTimer);
+            Common.executeOnceTimer = null;
+            fn();
+        }, delayMillis);
     },
 
     /**

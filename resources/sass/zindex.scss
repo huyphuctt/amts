@@ -1,0 +1,18 @@
+$top_most : 1000000;
+$i: 1;
+
+$classes: 
+'.dialog-progress',
+'.dialog-backdrop',
+'.Toastify__toast-container',
+'.modal',
+'.modal-backdrop',
+'end-top-most'
+;
+
+@each $cls in $classes {
+    #{$cls} {
+        z-index: $top_most - $i !important;
+    }
+    $i: $i + 1;
+}

@@ -19,6 +19,7 @@ import urlImport from '../forms/UrlImportForm';
 
 import Utils from '../utils/Utils';
 import CONST from '../utils/Const';
+import Common from '../utils/Common';
 class PageCustomerDB extends AbsComponent {
     constructor(props) {
         super(props);
@@ -110,7 +111,7 @@ class PageCustomerDB extends AbsComponent {
                 <Popover className="popover-menu">
                     <List>
                         <ListItem link="#" popoverClose title="Dialog" onClick={(e) => { self.showImportUrl(); }} />
-                        <ListItem link="#" popoverClose title="Tabs" />
+                        <ListItem link="#" popoverClose title="Progress" onClick={(e) => { Common.showProgress('Loading...'); }} />
                         <ListItem link="#" popoverClose title="Side Panels" />
                         <ListItem link="#" popoverClose title="List View" />
                         <ListItem link="#" popoverClose title="Form Inputs" />

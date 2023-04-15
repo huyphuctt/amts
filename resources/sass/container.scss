@@ -1,0 +1,69 @@
+.horizontal-container {
+    margin: 0 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .row {
+        white-space: nowrap;
+        display: unset !important;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        --f7-cols-per-row: 1;
+
+        .app {
+            background-color: #d5dce4;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            .detail {
+                width: 100%;
+                display: grid;
+
+                img {
+                    width: 90px;
+                    height: 64px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .title {
+                    color: black;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    font-family: Helvetica;
+                    font-size: 12px;
+                    margin-block-start: 0;
+                    margin-block-end: 0;
+                    text-overflow: ellipsis;
+                    line-height: 1em;
+                    text-align: center;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+.accordion-item {
+    .item-link {
+        background-color: rgb(113, 112, 113);
+        color: white;
+    }
+
+    .item-title {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .item-inner:before {
+        color: white !important;
+    }
+}
+
+.accordion-item-opened {
+    .item-link {
+        background-color: #c55a11;
+    }
+}

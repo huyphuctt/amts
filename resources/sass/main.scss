@@ -41,4 +41,10 @@
     box-shadow: 5px 1px #e0e0e0 !important;
 }
 
-// @import "./template/adminlte";
+.no-before {
+    * {
+        &:before {
+            height: 0px !important;
+        }
+    }
+}

@@ -2,13 +2,18 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Nunito',
+sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 
 :root {
     --background-color: #1a2330;
-    --primary-color: #ed6a66;
+    --primary-color: #37b960;
     --secondary-color: #c0aa53;
+    --f7-tabbar-link-active-color: #c55a11;
+    --f7-theme-color: #37b960;
+    --f7-theme-color-rgb: 197, 90, 17;
+
 }
